@@ -2,7 +2,7 @@
 ## I. Functions
 - Người dung có thể tạo tài khoản, quản lý profile
 - Người dùng có thể upload, lưu trữ hình ảnh của mình lên web
-- Người dùng có thể tạo album cho các hình ảnh
+- Người dùng có thể tạo album cho các hình ảnh, album đám,...
 - Người dùng có thể thiết lập quyền riêng tư cho hình ảnh
 - Người dùng có thể thêm vị trí và thời gian của hình ảnh, album
 - Người dùng có thể xem các hình ảnh của mình trên map
