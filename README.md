@@ -1,4 +1,4 @@
-# Photos Hosting 
+# Cloud Photo Storage
 ## I. Functions
 - Người dung có thể tạo tài khoản, quản lý profile
 - Người dùng có thể upload, lưu trữ hình ảnh của mình lên web
