@@ -1,18 +1,17 @@
 # Cloud Photos Storage
 ## I. Functions
-- Người dung có thể tạo tài khoản, quản lý profile
-- Người dùng có thể upload, lưu trữ hình ảnh của mình lên web
-- Người dùng có thể tạo album cho các hình ảnh, album đám cưới,...
-- Người dùng có thể thiết lập quyền riêng tư cho hình ảnh
-- Người dùng có thể thêm vị trí và thời gian của hình ảnh, album
-- Người dùng có thể xem các hình ảnh của mình trên map
-- Người dùng có thể design album để in ra
-- Người dùng có chia sẻ lên MXH
--
+- User can create a account, can edit profile
+- User can upload and storage photos on web
+- User can create album, a collection, weding album ,...
+- Users can set privacy and can share photos and albums
+- User can add location and time of image, album
+- Users can view their images on the map
+- Users can design photo albums to print
+- Usere able to share their photos, album to social network
 ## II. Features 
 
 ## Technical requirements
-- Web
+- Web interface
 	-  reactjs 
 - Api
 	- java spring boot 
