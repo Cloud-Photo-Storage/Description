@@ -3,7 +3,7 @@
 - [Authentication](#2-authentication)
   - [Signup](#21-signup) 
   - [Sign in](#22-sign-in) 
-  - [Refresh Token](#21-refresh-token) 
+  - [Refresh Token](#23-refresh-token) 
 - [Resources](#3-resources)
 - [Testing](#4-testing)
 
@@ -15,6 +15,7 @@ Cloud Photos Storage's API is a JSON-based OAuth2 API. All requests are made to 
 All requests must be secure, i.e. `https`, not `http`.
 
 ## 2. Authentication
+![Drag Racing](https://postimg.cc/s14s1z9r)
 ### 2.1 Signup
 `POST /auth/signup` 
 
@@ -117,7 +118,7 @@ Content-Type: application/json; charset=utf-8
 ```
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
-| refreshToken | string|required| refreshToken of your account|
+| refreshToken | string|required| "refreshToken" of your account|
 
 ##### 2.3.2 **Response**
 ``` 
