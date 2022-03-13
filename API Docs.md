@@ -5,7 +5,8 @@
 - [Testing](#4-testing)
 
 ## 1. Overview
-Cloud Photos Storage's API is a JSON-based OAuth2 API. All requests are made to endpoints beginning:
+Cloud Photos Storage's API is a JSON-based OAuth2 API. All requests are made to endpoints beginning: 
+
 `https://cloud-fotos-storage.de/api/v1`
 
 All requests must be secure, i.e. `https`, not `http`.
