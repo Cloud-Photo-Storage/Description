@@ -189,7 +189,7 @@ Content-Type: application/json; charset=utf-8
 
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
-| data| [UserResponse](#user-response)|required| user details|
+| data| [UserResponse](#userresponse)|required| user details|
 
 ## 4. Response Entity
 
@@ -216,7 +216,6 @@ Content-Type: application/json; charset=utf-8
 
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
-| id| string|required| id of your account|
 | username| string|required| username of your account|
 | firstName| string|required| firstName of your account|
 | lastName| string|required| lastName  of your account|
