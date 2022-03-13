@@ -15,7 +15,8 @@ Cloud Photos Storage's API is a JSON-based OAuth2 API. All requests are made to 
 All requests must be secure, i.e. `https`, not `http`.
 
 ## 2. Authentication
-![Drag Racing](https://postimg.cc/s14s1z9r)
+
+![Drag Racing](https://i.postimg.cc/dQz1HthL/Screenshot-2022-03-13-at-21-04-25.png)
 ### 2.1 Signup
 `POST /auth/signup` 
 
