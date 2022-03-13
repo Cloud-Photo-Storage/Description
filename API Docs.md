@@ -5,7 +5,8 @@
   - [Sign in](#22-sign-in) 
   - [Refresh Token](#23-refresh-token) 
 - [Resources](#3-resources)
-- [Testing](#4-testing)
+- [Object](#4-object)
+- [Testing](#5-testing)
 
 ## 1. Overview
 Cloud Photos Storage's API is a JSON-based OAuth2 API. All requests are made to endpoints beginning: 
@@ -41,6 +42,26 @@ All requests must be secure, i.e. `https`, not `http`.
 | lastName | string|required| last name of your account|
 | email | string|required| email of your account|
 
+**Response**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "status": {{status}},
+  "timestamp": {{timestamp}},
+  "message": {{message}},
+  "data": {{AuthResponse}}
+}
+```
+| Parameter | Type | Required | Description |
+| --- |---|---|---|
+| status| string|required| status of response|
+| timestamp | string|required| timestamp of response |
+| message | string|required| message of response |
+| data| [AuthResponse](#authresponse)|required| NULL when login failed|
+
+
 ### 2.2 Sign in
 `POST /auth/signin`
 
@@ -67,23 +88,19 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {
-  "id": {{id}},
-  "username": {{username}},
-  "email": {{email}},
-  "tokenType": "Bearer",
-  "accessToken": {{accessToken}},
-  "refreshToken": {{refreshToken}}
+  "status": {{status}},
+  "timestamp": {{timestamp}},
+  "message": {{message}},
+  "data": {{AuthResponse}}
 }
 ```
-
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
-| id| string|required| id of your account|
-| username| string|required| username of your account|
-| email| string|required| email of your account|
-| tokenType| string|required| token type|
-| accessToken| string|required| token of your account|
-| refreshToken| string|required| A token that does not expire which may be used to acquire a new accessToken|
+| status| string|required| status of response|
+| timestamp | string|required| timestamp of response |
+| message | string|required| message of response |
+| data| [AuthResponse](#authresponse)|required| NULL when login failed|
+
 - FAIL
 ```
 HTTP/1.1 401 Unauthorized
@@ -141,6 +158,50 @@ Content-Type: application/json; charset=utf-8
 
 
 ## 3. Resources
+### 3.1. User
+#### 3.1.1 Get User
+- Get user information
+##### **Request**
+
+`GET /user/{{userId}}`
+```
+Content-Type: application/json
+Accept: application/json
+Accept-Charset: utf-8
+Authorization: Bearer {{accessToken}}
+
+{}
+```
+##### **Response**
+``` 
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+ {
+      "status": {{status}},
+      "timestamp": {{timestamp}},
+      "message": {{message}},
+      "data": {{data}}
+
+ }
+```
+| Parameter | Type | Required | Description |
+| --- |---|---|---|
+| tokenType| string|required| token type|
+| accessToken| string|required| token of your account|
+| refreshToken| string|required| A token that does not expire which may be used to acquire a new accessToken|
 
 
-## 4. Testing
+## 4. Object
+
+#### AuthResponse
+
+| Parameter | Type | Required | Description |
+| --- |---|---|---|
+| id| string|required| id of your account|
+| username| string|required| username of your account|
+| email| string|required| email of your account|
+| tokenType| string|required| token type|
+| accessToken| string|required| token of your account|
+| refreshToken| string|required| A token that does not expire which may be used to acquire a new accessToken|
+## 5. Testing
