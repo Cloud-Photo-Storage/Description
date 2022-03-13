@@ -5,7 +5,7 @@
   - [Sign in](#22-sign-in) 
   - [Refresh Token](#23-refresh-token) 
 - [Resources](#3-resources)
-- [Object](#4-object)
+- [Response Entity](#4-response-entity)
 - [Testing](#5-testing)
 
 ## 1. Overview
@@ -56,9 +56,6 @@ Content-Type: application/json; charset=utf-8
 ```
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
-| status| string|required| status of response|
-| timestamp | string|required| timestamp of response |
-| message | string|required| message of response |
 | data| [AuthResponse](#authresponse)|required| NULL when login failed|
 
 
@@ -96,9 +93,6 @@ Content-Type: application/json; charset=utf-8
 ```
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
-| status| string|required| status of response|
-| timestamp | string|required| timestamp of response |
-| message | string|required| message of response |
 | data| [AuthResponse](#authresponse)|required| NULL when login failed|
 
 - FAIL
@@ -144,14 +138,21 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
  {
-      "tokenType": "Bearer",
-      "accessToken": {{accessToken}},
-      "refreshToken": {{refreshToken}}
+      "status": {{status}},
+      "timestamp": {{timestamp}},
+      "message": {{message}},
+      "data": {
+        "tokenType": "Bearer",
+        "accessToken": {{accessToken}},
+        "refreshToken": {{refreshToken}}
+      }
+      
 
  }
 ```
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
+| data| JSON|required| NULL when 'refreshToken' invalid|
 | tokenType| string|required| token type|
 | accessToken| string|required| token of your account|
 | refreshToken| string|required| A token that does not expire which may be used to acquire a new accessToken|
@@ -185,14 +186,20 @@ Content-Type: application/json; charset=utf-8
 
  }
 ```
+
+| Parameter | Type | Required | Description |
+| --- |---|---|---|
+| data| [UserResponse](#user-response)|required| user details|
+
+## 4. Response Entity
+
+#### CommonResponse
+
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
 | tokenType| string|required| token type|
 | accessToken| string|required| token of your account|
 | refreshToken| string|required| A token that does not expire which may be used to acquire a new accessToken|
-
-
-## 4. Object
 
 #### AuthResponse
 
@@ -204,4 +211,18 @@ Content-Type: application/json; charset=utf-8
 | tokenType| string|required| token type|
 | accessToken| string|required| token of your account|
 | refreshToken| string|required| A token that does not expire which may be used to acquire a new accessToken|
+
+#### UserResponse
+
+| Parameter | Type | Required | Description |
+| --- |---|---|---|
+| id| string|required| id of your account|
+| username| string|required| username of your account|
+| firstName| string|required| firstName of your account|
+| lastName| string|required| lastName  of your account|
+| phone| string|required| phone of your account|
+| city| string|required| city of your account|
+| country| string|required| country of your account|
+| birthday| string|required| birthday of your account|
+
 ## 5. Testing
