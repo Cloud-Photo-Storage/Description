@@ -5,6 +5,10 @@
   - [Sign in](#22-sign-in) 
   - [Refresh Token](#23-refresh-token) 
 - [Resources](#3-resources)
+  - [User](#user)
+    - [Get User](#get-user)
+    - [Update User](#update-user)
+    - [delete User](#delete-user)
 - [Response Entity](#4-response-entity)
 - [Testing](#5-testing)
 
@@ -161,7 +165,7 @@ Content-Type: application/json; charset=utf-8
 ## 3. Resources
 ### 3.1. User
 #### 3.1.1 Get User
-- Get user information
+- Get user information. `Every one`, who has account, can access all user informations.
 ##### **Request**
 
 `GET /user/{{userId}}`
@@ -190,6 +194,81 @@ Content-Type: application/json; charset=utf-8
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
 | data| [UserResponse](#userresponse)|required| user details|
+
+#### 3.1.2 Update User
+Only user own this account can edit their information.
+
+`PUT /user/{{userId}}`
+
+```
+Content-Type: application/json
+Accept: application/json
+Accept-Charset: utf-8
+Authorization: Bearer {{accessToken}}
+
+{
+    "firstName": {{firstName}},
+    "lastName": {{lastName}},
+    "email": {{email}},
+    "birthday": {{birthday}},
+    "city": {{city}},
+    "country": {{country}},
+    "phone": {{phone}}
+}
+```
+
+| Parameter | Type | Required |
+| --- |---|---|
+| firstName | string|not required| 
+| lastName | string|not required| 
+| email | string|not required|
+| birthday | string|not required| 
+| city | string|not required| 
+| country | string|not required|
+| phone | string|not required|
+
+##### **Response**
+``` 
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+ {
+      "status": {{status}},
+      "timestamp": {{timestamp}},
+      "message": {{message}},
+      "data": NULL
+
+ }
+```
+
+#### 3.1.2 Delete User
+
+- Only user own this account can delete their information.
+
+##### **Request**
+
+`DELETE /user/{{userId}}`
+```
+Content-Type: application/json
+Accept: application/json
+Accept-Charset: utf-8
+Authorization: Bearer {{accessToken}}
+
+{}
+```
+##### **Response**
+``` 
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+ {
+      "status": {{status}},
+      "timestamp": {{timestamp}},
+      "message": {{message}},
+      "data": NULL
+
+ }
+```
 
 ## 4. Response Entity
 
