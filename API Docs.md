@@ -5,10 +5,10 @@
   - [Sign in](#22-sign-in) 
   - [Refresh Token](#23-refresh-token) 
 - [Resources](#3-resources)
-  - [User](#user)
-    - [Get User](#get-user)
-    - [Update User](#update-user)
-    - [delete User](#delete-user)
+  - [User](#31user)
+    - [Get User](#311get-user)
+    - [Update User](#312update-user)
+    - [Delete User](#313delete-user)
 - [Response Entity](#4-response-entity)
 - [Testing](#5-testing)
 
@@ -163,7 +163,7 @@ Content-Type: application/json; charset=utf-8
 
 
 ## 3. Resources
-### 3.1. User
+### 3.1 User
 #### 3.1.1 Get User
 - Get user information. `Every one`, who has account, can access all user informations.
 ##### **Request**
@@ -241,7 +241,7 @@ Content-Type: application/json; charset=utf-8
  }
 ```
 
-#### 3.1.2 Delete User
+#### 3.1.3 Delete User
 
 - Only user own this account can delete their information.
 
