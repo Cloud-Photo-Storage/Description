@@ -6,9 +6,9 @@
   - [Refresh Token](#23-refresh-token) 
 - [Resources](#3-resources)
   - [User](#31user)
-    - [Get User](#311get-user)
-    - [Update User](#312update-user)
-    - [Delete User](#313delete-user)
+    - [Get User](#311-get-user)
+    - [Update User](#312-update-user)
+    - [Delete User](#313-delete-user)
 - [Response Entity](#4-response-entity)
 - [Testing](#5-testing)
 
