@@ -197,9 +197,9 @@ Content-Type: application/json; charset=utf-8
 
 | Parameter | Type | Required | Description |
 | --- |---|---|---|
-| tokenType| string|required| token type|
-| accessToken| string|required| token of your account|
-| refreshToken| string|required| A token that does not expire which may be used to acquire a new accessToken|
+| status| string|required| status|
+| timestamp| string|required| timestamp of response |
+| message| string|required| message of response|
 
 #### AuthResponse
 
