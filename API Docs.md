@@ -4,11 +4,16 @@
   - [Signup](#21-signup) 
   - [Sign in](#22-sign-in) 
   - [Refresh Token](#23-refresh-token) 
+  - [Verify email](#24-verify-email)
+  - [Check username](#25-check-username)
 - [Resources](#3-resources)
   - [User](#31user)
     - [Get User](#311-get-user)
     - [Update User](#312-update-user)
     - [Delete User](#313-delete-user)
+  - [Account](#32-account)
+    - [Reset Password](#321-reset-password)
+    - [Reset Access Token](#322-reset-access-token)
 - [Response Entity](#4-response-entity)
 - [Testing](#5-testing)
 
@@ -161,7 +166,49 @@ Content-Type: application/json; charset=utf-8
 | accessToken| string|required| token of your account|
 | refreshToken| string|required| A token that does not expire which may be used to acquire a new accessToken|
 
+### 2.4 Verify email
+To verify your email, then you can use this account.
 
+**Request**
+
+`GET /auth/verify-email?token={{token-verify-email}}`
+
+**Response**
+
+``` 
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+ {
+      "status": {{status}},
+      "timestamp": {{timestamp}},
+      "message": {{message}},
+      "data": NULL
+
+ }
+```
+
+### 2.5 Check username
+Check if username available.
+
+**Request**
+
+`GET /auth/check-username?username={{username}}`
+
+**Response**
+
+``` 
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+ {
+      "status": {{status}},
+      "timestamp": {{timestamp}},
+      "message": {{message}},
+      "data": NULL
+
+ }
+```
 ## 3. Resources
 ### 3.1 User
 #### 3.1.1 Get User
@@ -270,7 +317,129 @@ Content-Type: application/json; charset=utf-8
  }
 ```
 
+### 3.2 Account
+#### 3.2.1 Reset Password
+
+User forgot password or just want to change their password. `It also will reset the access token of account`.
+
+`POST /account/reset-password`
+```
+Content-Type: application/json
+Accept: application/json
+Accept-Charset: utf-8
+Authorization: Bearer {{accessToken}}
+
+{
+    "newPassword": {{newPassword}}
+}
+```
+##### **Response**
+``` 
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+ {
+      "status": {{status}},
+      "timestamp": {{timestamp}},
+      "message": {{message}},
+      "data": {{AuthResponse}}
+
+ }
+```
+
+| Parameter | Type | Required | Description |
+| --- |---|---|---|
+| data| [AuthResponse](#authresponse)|required| user details|
+
+
+#### 3.2.2 Reset Access Token
+
+User want to logout all devices.
+
+`GET /account/reset-access-token`
+```
+Content-Type: application/json
+Accept: application/json
+Accept-Charset: utf-8
+Authorization: Bearer {{accessToken}}
+
+{}
+```
+##### **Response**
+``` 
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+ {
+      "status": {{status}},
+      "timestamp": {{timestamp}},
+      "message": {{message}},
+      "data": {{AuthResponse}}
+
+ }
+```
+
+| Parameter | Type | Required | Description |
+| --- |---|---|---|
+| data| [AuthResponse](#authresponse)|required| user details|
+
+### 3.3 Image
+#### 3.3.1 Upload Image
+
+Who has account can upload image.
+
+`POST /image`
+
+
+#### 3.3.2 Get Image
+
+User can see this image when they own this image or this image is set public.
+
+`GET /image/{{imageId}}`
+
+
+#### 3.3.3 Edit Image
+
+Just only user, who own this image can edit.
+
+`PUT /image/{{imageId}}`
+
+#### 3.3.4 Delete Image
+Just only user, who own this image can delete.
+
+`DELETE /image/{{imageId}}`
+
+
+### 3.4 Share
+
+#### 3.4.1 Create a Share
+
+`POST /share`
+
+
+#### 3.4.2 Edit a Share
+
+`PUT /share/{{tokenId}}`
+
+
+#### 3.4.3 Delete a Share
+
+`DELETE /share/{{tokenId}}`
+
+#### 3.4.4 Get a Share
+
+`GET /share/{{tokenId}}`
+
 ## 4. Response Entity
+
+#### Status Code
+
+| Code | Description |
+| --- |---|
+|0| Success|
+|1| Fail|
+|...|...|
+
 
 #### CommonResponse
 
